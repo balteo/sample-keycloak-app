@@ -1,0 +1,127 @@
+{
+  "version": 1,
+  "projects": {
+    "keycloak-client": {
+      "projectType": "application",
+      "root": "apps/keycloak-client",
+      "sourceRoot": "apps/keycloak-client/src",
+      "prefix": "sample-keycloak-app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/keycloak-client",
+            "index": "apps/keycloak-client/src/index.html",
+            "main": "apps/keycloak-client/src/main.ts",
+            "polyfills": "apps/keycloak-client/src/polyfills.ts",
+            "tsConfig": "apps/keycloak-client/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "apps/keycloak-client/src/favicon.ico",
+              "apps/keycloak-client/src/assets"
+            ],
+            "styles": ["apps/keycloak-client/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "apps/keycloak-client/src/environments/environment.ts",
+                  "with": "apps/keycloak-client/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "keycloak-client:build:production"
+            },
+            "development": {
+              "browserTarget": "keycloak-client:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "keycloak-client:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/keycloak-client/src/**/*.ts",
+              "apps/keycloak-client/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/keycloak-client"],
+          "options": {
+            "jestConfig": "apps/keycloak-client/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "tags": []
+    },
+    "keycloak-client-e2e": {
+      "root": "apps/keycloak-client-e2e",
+      "sourceRoot": "apps/keycloak-client-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/keycloak-client-e2e/cypress.json",
+            "devServerTarget": "keycloak-client:serve:development"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "keycloak-client:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["apps/keycloak-client-e2e/**/*.{js,ts}"]
+          }
+        }
+      },
+      "tags": [],
+      "implicitDependencies": ["keycloak-client"]
+    }
+  }
+}
