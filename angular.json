@@ -9,9 +9,7 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/keycloak-auth"
-          ],
+          "outputs": ["coverage/libs/keycloak-auth"],
           "options": {
             "jestConfig": "libs/keycloak-auth/jest.config.js",
             "passWithNoTests": true
@@ -37,9 +35,7 @@
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
-          "outputs": [
-            "{options.outputPath}"
-          ],
+          "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/apps/keycloak-ng-app",
             "index": "apps/keycloak-ng-app/src/index.html",
@@ -47,9 +43,7 @@
             "polyfills": "apps/keycloak-ng-app/src/polyfills.ts",
             "tsConfig": "apps/keycloak-ng-app/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
-            "allowedCommonJsDependencies": [
-              "keycloak-js"
-            ],
+            "allowedCommonJsDependencies": ["keycloak-js"],
             "assets": [
               "apps/keycloak-ng-app/src/favicon.ico",
               "apps/keycloak-ng-app/src/assets"
@@ -122,9 +116,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/apps/keycloak-ng-app"
-          ],
+          "outputs": ["coverage/apps/keycloak-ng-app"],
           "options": {
             "jestConfig": "apps/keycloak-ng-app/jest.config.js",
             "passWithNoTests": true
@@ -140,9 +132,7 @@
       "architect": {
         "build": {
           "builder": "@nrwl/web:webpack",
-          "outputs": [
-            "{options.outputPath}"
-          ],
+          "outputs": ["{options.outputPath}"],
           "defaultConfiguration": "production",
           "options": {
             "compiler": "babel",
@@ -156,9 +146,7 @@
               "apps/keycloak-react-app/src/favicon.ico",
               "apps/keycloak-react-app/src/assets"
             ],
-            "styles": [
-              "apps/keycloak-react-app/src/styles.scss"
-            ],
+            "styles": ["apps/keycloak-react-app/src/styles.scss"],
             "scripts": [],
             "webpackConfig": "@nrwl/react/plugins/webpack"
           },
@@ -194,20 +182,14 @@
         },
         "lint": {
           "builder": "@nrwl/linter:eslint",
-          "outputs": [
-            "{options.outputFile}"
-          ],
+          "outputs": ["{options.outputFile}"],
           "options": {
-            "lintFilePatterns": [
-              "apps/keycloak-react-app/**/*.{ts,tsx,js,jsx}"
-            ]
+            "lintFilePatterns": ["apps/keycloak-react-app/**/*.{ts,tsx,js,jsx}"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/apps/keycloak-react-app"
-          ],
+          "outputs": ["coverage/apps/keycloak-react-app"],
           "options": {
             "jestConfig": "apps/keycloak-react-app/jest.config.js",
             "passWithNoTests": true
@@ -215,6 +197,125 @@
         }
       },
       "tags": []
+    },
+    "portal": {
+      "projectType": "application",
+      "root": "apps/portal",
+      "sourceRoot": "apps/portal/src",
+      "prefix": "portal",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/portal",
+            "index": "apps/portal/src/index.html",
+            "main": "apps/portal/src/main.ts",
+            "polyfills": "apps/portal/src/polyfills.ts",
+            "tsConfig": "apps/portal/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": ["apps/portal/src/favicon.ico", "apps/portal/src/assets"],
+            "styles": ["apps/portal/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "apps/portal/src/environments/environment.ts",
+                  "with": "apps/portal/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "portal:build:production"
+            },
+            "development": {
+              "browserTarget": "portal:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "portal:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/portal/src/**/*.ts",
+              "apps/portal/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/portal"],
+          "options": {
+            "jestConfig": "apps/portal/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "tags": []
+    },
+    "portal-e2e": {
+      "root": "apps/portal-e2e",
+      "sourceRoot": "apps/portal-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/portal-e2e/cypress.json",
+            "devServerTarget": "portal:serve:development"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "portal:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["apps/portal-e2e/**/*.{js,ts}"]
+          }
+        }
+      },
+      "tags": [],
+      "implicitDependencies": ["portal"]
     }
   }
 }

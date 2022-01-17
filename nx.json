@@ -4,7 +4,8 @@
     "defaultBase": "main"
   },
   "cli": {
-    "analytics": false
+    "analytics": false,
+    "defaultCollection": "@nrwl/angular"
   },
   "implicitDependencies": {
     "package.json": {
@@ -17,12 +18,7 @@
     "default": {
       "runner": "@nrwl/nx-cloud",
       "options": {
-        "cacheableOperations": [
-          "build",
-          "lint",
-          "test",
-          "e2e"
-        ],
+        "cacheableOperations": ["build", "lint", "test", "e2e"],
         "accessToken": "OWY4NDRlZWEtYTAzYy00ZjU0LWFkZjEtMjdkMDdmY2U2ZTRlfHJlYWQtd3JpdGU="
       }
     }
@@ -40,7 +36,8 @@
       "style": "scss",
       "linter": "eslint",
       "unitTestRunner": "jest",
-      "e2eTestRunner": "cypress"
+      "e2eTestRunner": "cypress",
+      "strict": false
     },
     "@nrwl/angular:library": {
       "linter": "eslint",
