@@ -3,7 +3,6 @@ import {AuthGuard} from './auth.guard';
 import {KeycloakAuthService} from "../services/keycloak-auth.service";
 import {KeycloakConfigToken} from "../models/keycloak-config.model";
 import {MOCK_KEYCLOAK_CONFIG} from "../../test-mocks";
-import {of} from "rxjs";
 
 describe('AuthGuard', () => {
   let guard: AuthGuard;
