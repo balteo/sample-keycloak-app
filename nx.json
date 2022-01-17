@@ -4,8 +4,7 @@
     "defaultBase": "main"
   },
   "cli": {
-    "defaultCollection": "@nrwl/angular",
-    "packageManager": "npm"
+    "analytics": false
   },
   "implicitDependencies": {
     "package.json": {
@@ -18,7 +17,12 @@
     "default": {
       "runner": "@nrwl/nx-cloud",
       "options": {
-        "cacheableOperations": ["build", "lint", "test", "e2e"],
+        "cacheableOperations": [
+          "build",
+          "lint",
+          "test",
+          "e2e"
+        ],
         "accessToken": "OWY4NDRlZWEtYTAzYy00ZjU0LWFkZjEtMjdkMDdmY2U2ZTRlfHJlYWQtd3JpdGU="
       }
     }

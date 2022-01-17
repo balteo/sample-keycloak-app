@@ -9,6 +9,7 @@ import {AppRoutingModule} from "./app.routing";
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {KeycloakAuthModule} from "@keycloak-auth/keycloak-auth.module";
 import {AuthInterceptor} from "@keycloak-auth/interceptors/auth.interceptor";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [AppComponent, PublicComponent, PrivateComponent],
@@ -16,7 +17,8 @@ import {AuthInterceptor} from "@keycloak-auth/interceptors/auth.interceptor";
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    KeycloakAuthModule.forRoot(environment.keycloakConfig)
+    KeycloakAuthModule.forRoot(environment.keycloakConfig),
+    BrowserAnimationsModule
   ],
   providers: [
     // {
