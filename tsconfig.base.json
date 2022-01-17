@@ -12,9 +12,12 @@
     "module": "esnext",
     "lib": ["es2017", "dom"],
     "skipLibCheck": true,
+    "allowSyntheticDefaultImports": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@keycloak-auth/*": ["libs/keycloak-auth/src/lib/*"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

@@ -1,27 +1,57 @@
 {
+  "cli": {
+    "analytics": false
+  },
   "version": 1,
   "projects": {
-    "keycloak-client": {
+    "keycloak-auth": {
+      "projectType": "library",
+      "root": "libs/keycloak-auth",
+      "sourceRoot": "libs/keycloak-auth/src",
+      "prefix": "sample-keycloak-app",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/keycloak-auth"],
+          "options": {
+            "jestConfig": "libs/keycloak-auth/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/keycloak-auth/src/**/*.ts",
+              "libs/keycloak-auth/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": []
+    },
+    "keycloak-ng-app": {
       "projectType": "application",
-      "root": "apps/keycloak-client",
-      "sourceRoot": "apps/keycloak-client/src",
+      "root": "apps/keycloak-ng-app",
+      "sourceRoot": "apps/keycloak-ng-app/src",
       "prefix": "sample-keycloak-app",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "outputs": ["{options.outputPath}"],
           "options": {
-            "outputPath": "dist/apps/keycloak-client",
-            "index": "apps/keycloak-client/src/index.html",
-            "main": "apps/keycloak-client/src/main.ts",
-            "polyfills": "apps/keycloak-client/src/polyfills.ts",
-            "tsConfig": "apps/keycloak-client/tsconfig.app.json",
+            "outputPath": "dist/apps/keycloak-ng-app",
+            "index": "apps/keycloak-ng-app/src/index.html",
+            "main": "apps/keycloak-ng-app/src/main.ts",
+            "polyfills": "apps/keycloak-ng-app/src/polyfills.ts",
+            "tsConfig": "apps/keycloak-ng-app/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
+            "allowedCommonJsDependencies": ["keycloak-js"],
             "assets": [
-              "apps/keycloak-client/src/favicon.ico",
-              "apps/keycloak-client/src/assets"
+              "apps/keycloak-ng-app/src/favicon.ico",
+              "apps/keycloak-ng-app/src/assets"
             ],
-            "styles": ["apps/keycloak-client/src/styles.scss"],
+            "styles": ["apps/keycloak-ng-app/src/styles.scss"],
             "scripts": []
           },
           "configurations": {
@@ -40,8 +70,8 @@
               ],
               "fileReplacements": [
                 {
-                  "replace": "apps/keycloak-client/src/environments/environment.ts",
-                  "with": "apps/keycloak-client/src/environments/environment.prod.ts"
+                  "replace": "apps/keycloak-ng-app/src/environments/environment.ts",
+                  "with": "apps/keycloak-ng-app/src/environments/environment.prod.ts"
                 }
               ],
               "outputHashing": "all"
@@ -61,10 +91,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "keycloak-client:build:production"
+              "browserTarget": "keycloak-ng-app:build:production"
             },
             "development": {
-              "browserTarget": "keycloak-client:build:development"
+              "browserTarget": "keycloak-ng-app:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -72,43 +102,81 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "keycloak-client:build"
+            "browserTarget": "keycloak-ng-app:build"
           }
         },
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "apps/keycloak-client/src/**/*.ts",
-              "apps/keycloak-client/src/**/*.html"
+              "apps/keycloak-ng-app/src/**/*.ts",
+              "apps/keycloak-ng-app/src/**/*.html"
             ]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/keycloak-client"],
+          "outputs": ["coverage/apps/keycloak-ng-app"],
           "options": {
-            "jestConfig": "apps/keycloak-client/jest.config.js",
+            "jestConfig": "apps/keycloak-ng-app/jest.config.js",
             "passWithNoTests": true
           }
         }
       },
       "tags": []
     },
-    "keycloak-client-e2e": {
-      "root": "apps/keycloak-client-e2e",
-      "sourceRoot": "apps/keycloak-client-e2e/src",
+    "keycloak-react-app": {
+      "root": "apps/keycloak-react-app",
+      "sourceRoot": "apps/keycloak-react-app/src",
       "projectType": "application",
       "architect": {
-        "e2e": {
-          "builder": "@nrwl/cypress:cypress",
+        "build": {
+          "builder": "@nrwl/web:webpack",
+          "outputs": ["{options.outputPath}"],
+          "defaultConfiguration": "production",
           "options": {
-            "cypressConfig": "apps/keycloak-client-e2e/cypress.json",
-            "devServerTarget": "keycloak-client:serve:development"
+            "compiler": "babel",
+            "outputPath": "dist/apps/keycloak-react-app",
+            "index": "apps/keycloak-react-app/src/index.html",
+            "baseHref": "/",
+            "main": "apps/keycloak-react-app/src/main.tsx",
+            "polyfills": "apps/keycloak-react-app/src/polyfills.ts",
+            "tsConfig": "apps/keycloak-react-app/tsconfig.app.json",
+            "assets": [
+              "apps/keycloak-react-app/src/favicon.ico",
+              "apps/keycloak-react-app/src/assets"
+            ],
+            "styles": ["apps/keycloak-react-app/src/styles.scss"],
+            "scripts": [],
+            "webpackConfig": "@nrwl/react/plugins/webpack"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "keycloak-client:serve:production"
+              "fileReplacements": [
+                {
+                  "replace": "apps/keycloak-react-app/src/environments/environment.ts",
+                  "with": "apps/keycloak-react-app/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/web:dev-server",
+          "options": {
+            "buildTarget": "keycloak-react-app:build",
+            "hmr": true
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "keycloak-react-app:build:production",
+              "hmr": false
             }
           }
         },
@@ -116,12 +184,19 @@
           "builder": "@nrwl/linter:eslint",
           "outputs": ["{options.outputFile}"],
           "options": {
-            "lintFilePatterns": ["apps/keycloak-client-e2e/**/*.{js,ts}"]
+            "lintFilePatterns": ["apps/keycloak-react-app/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/keycloak-react-app"],
+          "options": {
+            "jestConfig": "apps/keycloak-react-app/jest.config.js",
+            "passWithNoTests": true
           }
         }
       },
-      "tags": [],
-      "implicitDependencies": ["keycloak-client"]
+      "tags": []
     }
   }
 }
