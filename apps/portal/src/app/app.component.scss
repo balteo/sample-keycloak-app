@@ -1,0 +1,6 @@
+@use '@angular/material' as mat;
+@import '../portal-theme';
+
+.header {
+  background-color: mat.get-color-from-palette($portal-primary);
+}
