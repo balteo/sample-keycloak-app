@@ -16,6 +16,8 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import { CategoryFormPageComponent } from './category/pages/category-form-page/category-form-page.component';
+import {MatBadgeModule} from "@angular/material/badge";
+import {MatChipsModule} from "@angular/material/chips";
 
 @NgModule({
   declarations: [AppComponent, CategoryItemComponent, CategoryPageComponent, CategoryFormComponent, CategoryFormPageComponent],
@@ -41,6 +43,8 @@ import { CategoryFormPageComponent } from './category/pages/category-form-page/c
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
+    MatBadgeModule,
+    MatChipsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
