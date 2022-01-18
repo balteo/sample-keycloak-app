@@ -6,7 +6,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {MatCardModule} from "@angular/material/card";
 import {CategoryItemComponent} from './category/components/category-item/category-item.component';
 import {MatButtonModule} from "@angular/material/button";
-import {CategoryPageComponent} from './category/pages/category-page/category-page.component';
+import {CategoryListPageComponent} from './category/pages/category-list-page/category-list-page.component';
 import {MatIconModule} from "@angular/material/icon";
 import {MatTooltipModule} from "@angular/material/tooltip";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
@@ -20,7 +20,7 @@ import {MatBadgeModule} from "@angular/material/badge";
 import {MatChipsModule} from "@angular/material/chips";
 
 @NgModule({
-  declarations: [AppComponent, CategoryItemComponent, CategoryPageComponent, CategoryFormComponent, CategoryFormPageComponent],
+  declarations: [AppComponent, CategoryItemComponent, CategoryListPageComponent, CategoryFormComponent, CategoryFormPageComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -31,7 +31,7 @@ import {MatChipsModule} from "@angular/material/chips";
     MatTooltipModule,
     RouterModule.forRoot([
       {
-        component: CategoryPageComponent,
+        component: CategoryListPageComponent,
         path: 'categories'
       },
       {

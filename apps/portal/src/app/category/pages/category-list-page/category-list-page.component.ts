@@ -2,14 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import {map, Observable} from "rxjs";
 import {Category} from "../../models/category.model";
 import {CategoryService} from "../../services/category.service";
-import {sortCategories} from "./category-page.lib";
+import {sortCategories} from "./category-list-page.lib";
 
 @Component({
   selector: 'portal-category-page',
-  templateUrl: './category-page.component.html',
-  styleUrls: ['./category-page.component.scss']
+  templateUrl: './category-list-page.component.html',
+  styleUrls: ['./category-list-page.component.scss']
 })
-export class CategoryPageComponent implements OnInit {
+export class CategoryListPageComponent implements OnInit {
 
   categories: Observable<Category[]>;
 

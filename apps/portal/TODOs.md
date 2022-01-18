@@ -4,7 +4,6 @@
 - Fonctionnalité de réordonnancement des catégories ?
 - Couleurs ? => COMME EXISTANT
 - Clarifier validateurs pour category label & description
-- Changer nom du composant category-page
 - Spécifier menu de gauche
 - Quand écran sm, menu de gauche passe à droite
 - Extraire blocs de html en composants
@@ -18,3 +17,4 @@
 - Clarifier différence entre primary, warn et accent colors in material
 - Ajouter bouton de déconnexion
 - Responsive ? => OUI
+- Changer nom du composant category-page
