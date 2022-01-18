@@ -3,7 +3,8 @@
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
   <portal-category-item
     *ngFor="let category of categories | async"
-    [category]="category">
+    [category]="category"
+    (deleteEvent)="deleteCategory($event)">
   </portal-category-item>
 
   <div class="mt-8 ml-8">

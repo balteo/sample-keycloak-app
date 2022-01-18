@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {map, Observable} from "rxjs";
+import {Component, OnInit} from '@angular/core';
+import {map, Observable, tap} from "rxjs";
 import {Category} from "../../models/category.model";
 import {CategoryService} from "../../services/category.service";
 import {sortCategories} from "./category-list-page.lib";
@@ -17,11 +17,21 @@ export class CategoryListPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.findCategories();
+  }
+
+  private findCategories() {
     this.categories = this.categoryService.findCategories()
       .pipe(
         map(sortCategories)
       );
   }
 
-
+  deleteCategory(id: number) {
+    this.categoryService.deleteCategory(id)
+      .pipe(
+        tap(() => this.findCategories())
+      )
+      .subscribe();
+  }
 }
