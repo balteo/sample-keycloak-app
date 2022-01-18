@@ -11,16 +11,24 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatTooltipModule} from "@angular/material/tooltip";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {MatListModule} from "@angular/material/list";
-import {CategoryFormComponent} from './category/components/category-form/category-form.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
-import { CategoryFormPageComponent } from './category/pages/category-form-page/category-form-page.component';
+import {CreateCategoryPageComponent} from './category/pages/create-category-page/create-category-page.component';
 import {MatBadgeModule} from "@angular/material/badge";
 import {MatChipsModule} from "@angular/material/chips";
+import {CategoryCreateFormComponent} from "./category/components/category-form/category-create-form.component";
+import {UpdateCategoryPageComponent} from "./category/pages/update-category-page/update-category-page.component";
+import {CategoryUpdateFormComponent} from "./category/components/category-form/category-update-form.component";
 
 @NgModule({
-  declarations: [AppComponent, CategoryItemComponent, CategoryListPageComponent, CategoryFormComponent, CategoryFormPageComponent],
+  declarations: [AppComponent,
+    CategoryItemComponent,
+    CategoryListPageComponent,
+    CategoryCreateFormComponent,
+    CategoryUpdateFormComponent,
+    CreateCategoryPageComponent,
+    UpdateCategoryPageComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -35,8 +43,12 @@ import {MatChipsModule} from "@angular/material/chips";
         path: 'categories'
       },
       {
-        component: CategoryFormPageComponent,
+        component: CreateCategoryPageComponent,
         path: 'categories/new'
+      },
+      {
+        component: UpdateCategoryPageComponent,
+        path: 'categories/:id'
       }
     ], {initialNavigation: 'enabledBlocking'}),
     MatListModule,

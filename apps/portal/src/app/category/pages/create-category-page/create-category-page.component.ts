@@ -5,16 +5,13 @@ import {Category} from "../../models/category.model";
 import {tap} from "rxjs";
 
 @Component({
-  selector: 'portal-category-form-page',
-  templateUrl: './category-form-page.component.html',
-  styleUrls: ['./category-form-page.component.scss']
+  selector: 'portal-create-category-page',
+  templateUrl: './create-category-page.component.html',
+  styleUrls: ['./create-category-page.component.scss']
 })
-export class CategoryFormPageComponent implements OnInit {
+export class CreateCategoryPageComponent {
 
   constructor(private router: Router, private categoryService: CategoryService) {
-  }
-
-  ngOnInit(): void {
   }
 
   navigateToCategories() {

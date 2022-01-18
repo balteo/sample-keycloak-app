@@ -19,7 +19,15 @@ export class CategoryService {
     return this.http.post('http://localhost:3000/category', category);
   }
 
+  updateCategory(category: Category): Observable<unknown> {
+    return this.http.put('http://localhost:3000/category/' + category.id, category);
+  }
+
   deleteCategory(categoryId: number): Observable<unknown> {
     return this.http.delete('http://localhost:3000/category/' + categoryId);
+  }
+
+  findCategoryById(categoryId: number): Observable<Category> {
+    return this.http.get<Category>('http://localhost:3000/category/' + categoryId);
   }
 }

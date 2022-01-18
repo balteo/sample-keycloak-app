@@ -10,8 +10,13 @@ export class CategoryItemComponent {
 
   @Input() category: Category;
   @Output() deleteEvent = new EventEmitter<number>();
+  @Output() updateEvent = new EventEmitter<Category>();
 
   delete(id: number) {
     this.deleteEvent.emit(id);
+  }
+
+  update(category: Category) {
+    this.updateEvent.emit(category);
   }
 }

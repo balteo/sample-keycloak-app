@@ -4,7 +4,8 @@
   <portal-category-item
     *ngFor="let category of categories | async"
     [category]="category"
-    (deleteEvent)="deleteCategory($event)">
+    (deleteEvent)="deleteCategory($event)"
+    (updateEvent)="navigateToUpdateCategoryForm($event)">
   </portal-category-item>
 
   <div class="mt-8 ml-8">

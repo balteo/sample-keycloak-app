@@ -1,6 +1,6 @@
-<form [formGroup]="categoryForm" (ngSubmit)="create()">
+<form [formGroup]="categoryForm" (ngSubmit)="save()" *ngIf="categoryForm">
   <mat-card class="m-2 max-w-4xl">
-    <mat-card-title>Ajouter une catégorie</mat-card-title>
+    <mat-card-title>{{title}}</mat-card-title>
     <div class="flex flex-col">
       <mat-form-field appearance="outline">
         <mat-label>Libellé</mat-label>

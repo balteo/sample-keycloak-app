@@ -3,6 +3,7 @@ import {map, Observable, tap} from "rxjs";
 import {Category} from "../../models/category.model";
 import {CategoryService} from "../../services/category.service";
 import {sortCategories} from "./category-list-page.lib";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'portal-category-list-page',
@@ -13,7 +14,7 @@ export class CategoryListPageComponent implements OnInit {
 
   categories: Observable<Category[]>;
 
-  constructor(private categoryService: CategoryService) {
+  constructor(private router: Router, private categoryService: CategoryService) {
   }
 
   ngOnInit(): void {
@@ -33,5 +34,9 @@ export class CategoryListPageComponent implements OnInit {
         tap(() => this.findCategories())
       )
       .subscribe();
+  }
+
+  navigateToUpdateCategoryForm(category: Category) {
+    this.router.navigate(['/categories/' + category.id])
   }
 }
