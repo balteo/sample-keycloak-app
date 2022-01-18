@@ -11,9 +11,13 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatTooltipModule} from "@angular/material/tooltip";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {MatListModule} from "@angular/material/list";
+import {CategoryFormComponent} from './category/components/category-form/category-form.component';
+import {ReactiveFormsModule} from "@angular/forms";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatInputModule} from "@angular/material/input";
 
 @NgModule({
-  declarations: [AppComponent, CategoryItemComponent, CategoryPageComponent],
+  declarations: [AppComponent, CategoryItemComponent, CategoryPageComponent, CategoryFormComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -29,6 +33,9 @@ import {MatListModule} from "@angular/material/list";
       }
     ], {initialNavigation: 'enabledBlocking'}),
     MatListModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
