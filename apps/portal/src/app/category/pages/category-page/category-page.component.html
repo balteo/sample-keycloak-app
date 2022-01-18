@@ -1,10 +1,14 @@
 <h1 class="text-3xl pb-8">Gestion des categories</h1>
 
-<portal-category-list
-  [categories]="categories | async">
-</portal-category-list>
-<div class="pt-3 max-w-4xl flex justify-end">
-  <button mat-raised-button color="accent" class="font-bold">
-    Ajouter une catégorie
-  </button>
+<div class="grid grid-cols-3 gap-2">
+  <portal-category-item
+    *ngFor="let category of categories | async"
+    [category]="category">
+  </portal-category-item>
+
+  <div class="mt-8 ml-8">
+    <button mat-fab color="accent" class="font-bold">
+      <mat-icon>add</mat-icon>
+    </button>
+  </div>
 </div>

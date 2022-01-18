@@ -4,19 +4,19 @@
       "id": 1,
       "order": 1,
       "label": "Outils",
-      "description": "blah blah blah (outils)"
+      "description": "Disponibles pour l'institution"
     },
     {
       "id": 2,
       "order": 2,
       "label": "Applications",
-      "description": "blah blah blah (applications)"
+      "description": "Disponibles pour l'institution"
     },
     {
       "id": 3,
       "order": 3,
       "label": "Logiciels",
-      "description": "blah blah blah (logiciels)"
+      "description": "Destinés aux salariés du CNOM"
     }
   ]
 }
