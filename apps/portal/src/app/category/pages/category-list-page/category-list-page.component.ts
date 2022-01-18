@@ -5,7 +5,7 @@ import {CategoryService} from "../../services/category.service";
 import {sortCategories} from "./category-list-page.lib";
 
 @Component({
-  selector: 'portal-category-page',
+  selector: 'portal-category-list-page',
   templateUrl: './category-list-page.component.html',
   styleUrls: ['./category-list-page.component.scss']
 })
