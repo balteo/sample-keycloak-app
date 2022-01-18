@@ -15,9 +15,10 @@ import {CategoryFormComponent} from './category/components/category-form/categor
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
+import { CategoryFormPageComponent } from './category/pages/category-form-page/category-form-page.component';
 
 @NgModule({
-  declarations: [AppComponent, CategoryItemComponent, CategoryPageComponent, CategoryFormComponent],
+  declarations: [AppComponent, CategoryItemComponent, CategoryPageComponent, CategoryFormComponent, CategoryFormPageComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -30,6 +31,10 @@ import {MatInputModule} from "@angular/material/input";
       {
         component: CategoryPageComponent,
         path: 'categories'
+      },
+      {
+        component: CategoryFormPageComponent,
+        path: 'categories/new'
       }
     ], {initialNavigation: 'enabledBlocking'}),
     MatListModule,

@@ -14,4 +14,8 @@ export class CategoryService {
   findCategories(): Observable<Category[]> {
     return this.http.get<Category[]>('http://localhost:3000/category');
   }
+
+  createCategory(category: Category): Observable<unknown> {
+    return this.http.post('http://localhost:3000/category', category);
+  }
 }

@@ -1,11 +1,13 @@
-<form [formGroup]="categoryForm">
+<form [formGroup]="categoryForm" (ngSubmit)="create()">
   <mat-card class="m-2 max-w-4xl">
     <mat-card-title>Ajouter une catégorie</mat-card-title>
     <div class="flex flex-col">
       <mat-form-field appearance="outline">
         <mat-label>Libellé</mat-label>
         <input matInput formControlName="label" placeholder="Libellé">
-        <mat-error *ngIf="categoryForm.controls['label'].errors['required']">La catégorie est obligatoire</mat-error>
+        <mat-error *ngIf="categoryForm.hasError('required', 'label')">
+          La catégorie est obligatoire
+        </mat-error>
         <mat-hint>Libellé</mat-hint>
       </mat-form-field>
       <mat-form-field appearance="outline">
@@ -17,12 +19,12 @@
     <div class="flex justify-end">
       <mat-card-actions>
         <span class="m-2">
-          <button mat-fab matTooltip="Annuler">
+          <button type="button" mat-fab matTooltip="Annuler" (click)="cancel()">
             <mat-icon>clear</mat-icon>
           </button>
         </span>
         <span class="m-2">
-          <button mat-fab matTooltip="Enregistrer">
+          <button type="submit" mat-fab matTooltip="Enregistrer la catégorie">
             <mat-icon>save</mat-icon>
           </button>
         </span>
