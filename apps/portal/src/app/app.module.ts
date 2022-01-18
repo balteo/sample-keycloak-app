@@ -2,7 +2,6 @@ import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {AppComponent} from './app.component';
 import {RouterModule} from '@angular/router';
-import {CategoryListComponent} from './category/components/category-list/category-list.component';
 import {HttpClientModule} from "@angular/common/http";
 import {MatCardModule} from "@angular/material/card";
 import {CategoryItemComponent} from './category/components/category-item/category-item.component';
@@ -14,7 +13,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {MatListModule} from "@angular/material/list";
 
 @NgModule({
-  declarations: [AppComponent, CategoryListComponent, CategoryItemComponent, CategoryPageComponent],
+  declarations: [AppComponent, CategoryItemComponent, CategoryPageComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
