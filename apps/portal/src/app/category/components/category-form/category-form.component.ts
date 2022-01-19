@@ -9,7 +9,7 @@ export abstract class CategoryFormComponent {
   readonly minLengthLabel = 1;
   readonly maxLengthLabel = 50;
   readonly maxLengthDescription = 255;
-  readonly alphanumeric = /^[0-9A-Za-zÀ-ÿ ]+$/;
+  readonly alphanumeric = /^[0-9A-Za-zÀ-ÿ ']+$/;
   readonly idValidators = [
     Validators.required
   ];
