@@ -3,7 +3,6 @@
 - Implementer tests
 - Fonctionnalité de réordonnancement des catégories ?
 - Couleurs ? => COMME EXISTANT
-- Clarifier validateurs pour category label & description
 - Spécifier menu de gauche
 - Quand écran sm, menu de gauche passe à droite
 - Extraire blocs de html en composants
@@ -18,3 +17,4 @@
 - Ajouter bouton de déconnexion
 - Responsive ? => OUI
 - Changer nom du composant category-page
+- Clarifier validateurs pour category label & description

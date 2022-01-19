@@ -10,6 +10,9 @@ export abstract class CategoryFormComponent {
   readonly maxLengthLabel = 50;
   readonly maxLengthDescription = 255;
   readonly alphanumeric = /^\w+$/;
+  readonly idValidators = [
+    Validators.required
+  ];
   readonly labelValidators = [
     Validators.required,
     Validators.pattern(this.alphanumeric),

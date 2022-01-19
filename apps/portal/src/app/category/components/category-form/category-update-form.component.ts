@@ -26,7 +26,7 @@ export class CategoryUpdateFormComponent extends CategoryFormComponent implement
 
   initForm() {
     this.categoryForm = this.fb.group({
-      id: [this.category.id],
+      id: [this.category.id, this.idValidators],
       order: [this.category.order],
       label: [this.category.label, this.labelValidators],
       description: [this.category.description, this.descriptionValidators]
