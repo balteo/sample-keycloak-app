@@ -30,10 +30,6 @@ export abstract class CategoryFormComponent {
   protected constructor(protected fb: FormBuilder) {
   }
 
-  abstract initForm();
-
-  abstract save();
-
   cancel() {
     this.cancelEvent.emit();
   }
