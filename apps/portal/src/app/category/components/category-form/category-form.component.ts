@@ -6,7 +6,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 })
 export abstract class CategoryFormComponent {
 
-  readonly minLengthLabel = 2;
+  readonly minLengthLabel = 1;
   readonly maxLengthLabel = 50;
   readonly maxLengthDescription = 255;
   readonly alphanumeric = /^\w+$/;
