@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnChanges, Output, SimpleChanges} from '@angular/core';
-import {FormBuilder, Validators} from "@angular/forms";
+import {FormBuilder} from "@angular/forms";
 import {Category} from "../../models/category.model";
 import {CategoryFormComponent} from "./category-form.component";
 
@@ -28,8 +28,8 @@ export class CategoryUpdateFormComponent extends CategoryFormComponent implement
     this.categoryForm = this.fb.group({
       id: [this.category.id],
       order: [this.category.order],
-      label: [this.category.label, Validators.required],
-      description: [this.category.description]
+      label: [this.category.label, this.labelValidators],
+      description: [this.category.description, this.descriptionValidators]
     });
   }
 

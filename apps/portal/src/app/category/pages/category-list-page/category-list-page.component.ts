@@ -37,6 +37,6 @@ export class CategoryListPageComponent implements OnInit {
   }
 
   navigateToUpdateCategoryForm(category: Category) {
-    this.router.navigate(['/categories/' + category.id])
+    this.router.navigate(['/categories/', category.id]);
   }
 }

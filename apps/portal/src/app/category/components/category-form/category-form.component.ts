@@ -1,11 +1,26 @@
 import {Component, EventEmitter, Output} from '@angular/core';
-import {FormBuilder, FormGroup} from "@angular/forms";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Category} from "../../models/category.model";
 
 @Component({
   template: ''
 })
 export abstract class CategoryFormComponent {
+
+  readonly minLengthLabel = 2;
+  readonly maxLengthLabel = 50;
+  readonly maxLengthDescription = 255;
+  readonly alphanumeric = /^\w+$/;
+  readonly labelValidators = [
+    Validators.required,
+    Validators.pattern(this.alphanumeric),
+    Validators.minLength(this.minLengthLabel),
+    Validators.maxLength(this.maxLengthLabel)
+  ];
+  readonly descriptionValidators = [
+    Validators.pattern(this.alphanumeric),
+    Validators.maxLength(this.maxLengthDescription)
+  ];
 
   categoryForm: FormGroup;
   @Output() cancelEvent = new EventEmitter();
@@ -15,6 +30,7 @@ export abstract class CategoryFormComponent {
   }
 
   abstract initForm();
+
   abstract save();
 
   cancel() {

@@ -23,8 +23,8 @@ export class CategoryCreateFormComponent extends CategoryFormComponent implement
 
   initForm() {
     this.categoryForm = this.fb.group({
-      label: ['', Validators.required],
-      description: ['']
+      label: ['', this.labelValidators],
+      description: ['', this.descriptionValidators]
     });
   }
 

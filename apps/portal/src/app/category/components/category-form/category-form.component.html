@@ -6,13 +6,28 @@
         <mat-label>Libellé</mat-label>
         <input matInput formControlName="label" placeholder="Libellé">
         <mat-error *ngIf="categoryForm.hasError('required', 'label')">
-          La catégorie est obligatoire
+          La libellé de la catégorie est obligatoire
+        </mat-error>
+        <mat-error *ngIf="categoryForm.hasError('minlength', 'label')">
+          {{minLengthLabel}} caractères minimum
+        </mat-error>
+        <mat-error *ngIf="categoryForm.hasError('maxlength', 'label')">
+          {{maxLengthLabel}} caractères maximum
+        </mat-error>
+        <mat-error *ngIf="categoryForm.hasError('pattern', 'label')">
+          seuls les caractères alphanumériques sont autorisés
         </mat-error>
         <mat-hint>Libellé</mat-hint>
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>Description</mat-label>
         <input matInput formControlName="description" placeholder="Description">
+        <mat-error *ngIf="categoryForm.hasError('maxlength', 'description')">
+          {{maxLengthDescription}} caractères maximum
+        </mat-error>
+        <mat-error *ngIf="categoryForm.hasError('pattern', 'description')">
+          seuls les caractères alphanumériques sont autorisés
+        </mat-error>
         <mat-hint>Description</mat-hint>
       </mat-form-field>
     </div>
