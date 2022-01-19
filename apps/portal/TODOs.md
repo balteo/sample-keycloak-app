@@ -7,6 +7,7 @@
 - Quand écran sm, menu de gauche passe à droite
 - Extraire blocs de html en composants
 - Validateur à implémenter pour vérifier si une catégorie n'existe pas déjà
+- Clarifier messages de confirmation utilisateur avant suppression et de confirmation de création
 
 ## List of done TODOs
 
