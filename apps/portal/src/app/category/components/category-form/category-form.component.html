@@ -17,6 +17,9 @@
         <mat-error *ngIf="categoryForm.hasError('pattern', 'label')">
           La valeur saisie doit comporter uniquement des chiffres et des lettres
         </mat-error>
+        <mat-error *ngIf="categoryForm.hasError('categoryExists', 'label')">
+          La catégorie existe déjà
+        </mat-error>
         <mat-hint>Libellé</mat-hint>
       </mat-form-field>
       <mat-form-field appearance="outline">

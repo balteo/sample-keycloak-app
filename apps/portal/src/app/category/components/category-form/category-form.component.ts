@@ -1,5 +1,7 @@
 import {Component, EventEmitter, Output} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {categoryExistsValidator} from "../../validators/category.validator";
+import {CategoryService} from "../../services/category.service";
 
 @Component({
   template: ''
@@ -19,6 +21,9 @@ export abstract class CategoryFormComponent {
     Validators.minLength(this.minLengthLabel),
     Validators.maxLength(this.maxLengthLabel)
   ];
+  readonly labelAsyncValidators = [
+    categoryExistsValidator(this.categoryService)
+  ];
   readonly descriptionValidators = [
     Validators.pattern(this.alphanumeric),
     Validators.maxLength(this.maxLengthDescription)
@@ -27,7 +32,7 @@ export abstract class CategoryFormComponent {
   categoryForm: FormGroup;
   @Output() cancelEvent = new EventEmitter();
 
-  protected constructor(protected fb: FormBuilder) {
+  protected constructor(protected fb: FormBuilder, protected categoryService: CategoryService) {
   }
 
   cancel() {
