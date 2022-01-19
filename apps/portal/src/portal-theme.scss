@@ -1,10 +1,10 @@
 @use '@angular/material' as mat;
 
-$portal-primary: mat.define-palette(mat.$light-green-palette, 500);
-$portal-accent: mat.define-palette(mat.$amber-palette, A200, A100, A400);
+@import "portal-palettes";
 
-// The "warn" palette is optional and defaults to red if not specified.
-$portal-warn: mat.define-palette(mat.$red-palette, A200);
+$portal-primary: mat.define-palette($portal-primary-palette);
+$portal-accent: mat.define-palette($portal-secondary-palette);
+$portal-warn: mat.define-palette($portal-warn-palette);
 
 $portal-theme: mat.define-light-theme((
   color: (
@@ -14,11 +14,5 @@ $portal-theme: mat.define-light-theme((
   )
 ));
 
-// Emit theme-dependent styles for common features used across multiple components.
 @include mat.core-theme($portal-theme);
-
-// Emit styles for MatButton based on `$portal-theme`. Because the configuration
-// passed to `define-light-theme` omits typography, `button-theme` will not
-// emit any typography styles.
-@include mat.button-theme($portal-theme);
-
+@include mat.all-component-themes($portal-theme);
