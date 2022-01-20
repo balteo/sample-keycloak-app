@@ -3,6 +3,8 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {CategoryService} from "../../services/category.service";
 import {Category} from "../../models/category.model";
 import {Observable, tap} from "rxjs";
+import {SaveConfirmationComponent} from "../../../../shared/save-confirmation/save-confirmation.component";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'portal-update-category-page',
@@ -15,7 +17,8 @@ export class UpdateCategoryPageComponent implements OnInit {
 
   constructor(private router: Router,
               private route: ActivatedRoute,
-              private categoryService: CategoryService) {
+              private categoryService: CategoryService,
+              private snackBar: MatSnackBar) {
   }
 
   ngOnInit(): void {
@@ -30,8 +33,16 @@ export class UpdateCategoryPageComponent implements OnInit {
   updateCategory(category: Category) {
     this.categoryService.updateCategory(category)
       .pipe(
-        tap(() => this.navigateToCategories())
+        tap(() => this.navigateToCategories()),
+        tap(() => this.displayUpdateConfirmation(category))
       )
       .subscribe();
+  }
+
+  displayUpdateConfirmation(category: Category) {
+    this.snackBar.openFromComponent(SaveConfirmationComponent, {
+      duration: 5000,
+      data: {message: `La catégorie ${category.label} a bien été mise à jour.`}
+    });
   }
 }

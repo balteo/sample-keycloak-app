@@ -25,6 +25,8 @@ import {MatDialogModule} from "@angular/material/dialog";
 import {routes} from "./app.routes";
 import {MatTabsModule} from "@angular/material/tabs";
 import { ApplicationListPageComponent } from './admin/application/pages/application-list-page/application-list-page.component';
+import { SaveConfirmationComponent } from './shared/save-confirmation/save-confirmation.component';
+import {MatSnackBarModule} from "@angular/material/snack-bar";
 
 @NgModule({
   declarations: [AppComponent,
@@ -35,7 +37,8 @@ import { ApplicationListPageComponent } from './admin/application/pages/applicat
     CreateCategoryPageComponent,
     UpdateCategoryPageComponent,
     DeleteConfirmationComponent,
-    ApplicationListPageComponent],
+    ApplicationListPageComponent,
+    SaveConfirmationComponent],
     imports: [
         RouterModule.forRoot(routes, {initialNavigation: 'enabledBlocking'}),
         BrowserModule,
@@ -52,6 +55,7 @@ import { ApplicationListPageComponent } from './admin/application/pages/applicat
         MatBadgeModule,
         MatChipsModule,
         MatDialogModule,
+        MatSnackBarModule,
         MatTabsModule
     ],
   providers: [],

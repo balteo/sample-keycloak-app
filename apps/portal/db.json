@@ -17,6 +17,11 @@
       "order": 3,
       "label": "Logiciels",
       "description": "Destinés aux salariés du CNOM"
+    },
+    {
+      "label": "Jeux",
+      "description": "",
+      "id": 4
     }
   ]
 }
