@@ -7,7 +7,7 @@ export const categoryExistsValidator = (categoryService: CategoryService): Async
     .pipe(
       map((categories) => categories.filter(category => category.id !== categoryForm.get('id')?.value)),
       map((categories) => categories.find(category => category.label.toLowerCase() === categoryForm.get('label').value.toLowerCase())),
-      tap(alreadyExists => alreadyExists ? categoryForm.get('label').setErrors({categoryExists: true}) : null),
-      map(alreadyExists => alreadyExists ? {categoryExists: true} : null)
+      map((alreadyExists) => alreadyExists ? {categoryExists: true} : null),
+      tap((errors) =>  categoryForm.get('label').setErrors(errors)),
     );
 };
