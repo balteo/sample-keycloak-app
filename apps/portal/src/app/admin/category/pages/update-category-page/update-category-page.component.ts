@@ -24,7 +24,7 @@ export class UpdateCategoryPageComponent implements OnInit {
   }
 
   navigateToCategories() {
-    this.router.navigate(['/categories']);
+    this.router.navigate(['/admin/categories']);
   }
 
   updateCategory(category: Category) {

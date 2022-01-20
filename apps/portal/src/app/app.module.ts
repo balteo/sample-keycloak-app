@@ -4,9 +4,9 @@ import {AppComponent} from './app.component';
 import {RouterModule} from '@angular/router';
 import {HttpClientModule} from "@angular/common/http";
 import {MatCardModule} from "@angular/material/card";
-import {CategoryItemComponent} from './category/components/category-item/category-item.component';
+import {CategoryItemComponent} from './admin/category/components/category-item/category-item.component';
 import {MatButtonModule} from "@angular/material/button";
-import {CategoryListPageComponent} from './category/pages/category-list-page/category-list-page.component';
+import {CategoryListPageComponent} from './admin/category/pages/category-list-page/category-list-page.component';
 import {MatIconModule} from "@angular/material/icon";
 import {MatTooltipModule} from "@angular/material/tooltip";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
@@ -14,12 +14,12 @@ import {MatListModule} from "@angular/material/list";
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
-import {CreateCategoryPageComponent} from './category/pages/create-category-page/create-category-page.component';
+import {CreateCategoryPageComponent} from './admin/category/pages/create-category-page/create-category-page.component';
 import {MatBadgeModule} from "@angular/material/badge";
 import {MatChipsModule} from "@angular/material/chips";
-import {CategoryCreateFormComponent} from "./category/components/category-form/category-create-form.component";
-import {UpdateCategoryPageComponent} from "./category/pages/update-category-page/update-category-page.component";
-import {CategoryUpdateFormComponent} from "./category/components/category-form/category-update-form.component";
+import {CategoryCreateFormComponent} from "./admin/category/components/category-form/category-create-form.component";
+import {UpdateCategoryPageComponent} from "./admin/category/pages/update-category-page/update-category-page.component";
+import {CategoryUpdateFormComponent} from "./admin/category/components/category-form/category-update-form.component";
 
 @NgModule({
   declarations: [AppComponent,
@@ -40,15 +40,15 @@ import {CategoryUpdateFormComponent} from "./category/components/category-form/c
     RouterModule.forRoot([
       {
         component: CategoryListPageComponent,
-        path: 'categories'
+        path: 'admin/categories'
       },
       {
         component: CreateCategoryPageComponent,
-        path: 'categories/new'
+        path: 'admin/categories/new'
       },
       {
         component: UpdateCategoryPageComponent,
-        path: 'categories/:id'
+        path: 'admin/categories/:id/edit'
       }
     ], {initialNavigation: 'enabledBlocking'}),
     MatListModule,

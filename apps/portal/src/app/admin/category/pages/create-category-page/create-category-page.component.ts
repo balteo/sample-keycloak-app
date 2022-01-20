@@ -15,7 +15,7 @@ export class CreateCategoryPageComponent {
   }
 
   navigateToCategories() {
-    this.router.navigate(['/categories']);
+    this.router.navigate(['/admin/categories']);
   }
 
   createCategory(category: Category) {
