@@ -1,12 +1,10 @@
 ### List of TODOs: 
 
 - Implementer tests
-- Implement create confirmation dialog
 - Fonctionnalité de réordonnancement des catégories ?
 - Couleurs ? => COMME EXISTANT
-- Add debounce to category validators
+- Add debouncetime to async validators
 - Extraire blocs de html en composants
-- Clarifier messages de confirmation utilisateur avant suppression et de confirmation de création
 - Docker with frontend & json server?
 
 ## List of done TODOs
@@ -22,3 +20,5 @@
 - Validateur à implémenter pour vérifier si une catégorie n'existe pas déjà
 - Spécifier menu de gauche
 - Quand écran sm, menu de gauche passe à droite
+- Implement create confirmation dialog
+- Clarifier messages de confirmation utilisateur avant suppression et de confirmation de création
