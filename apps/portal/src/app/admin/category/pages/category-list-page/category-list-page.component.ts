@@ -42,8 +42,7 @@ export class CategoryListPageComponent implements OnInit {
   openDeleteConfirmationDialog(category: Category) {
     const dialogRef = this.dialog.open(DeleteConfirmationComponent, {
       data: {
-        entityType: 'la categorie',
-        entityLabel: category.label
+        message: `Supprimer la categorie ${category.label} ?`,
       }
     });
 
