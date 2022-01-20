@@ -1,6 +1,7 @@
 ### List of TODOs: 
 
 - Implementer tests
+- Implement create confirmation dialog
 - Fonctionnalité de réordonnancement des catégories ?
 - Couleurs ? => COMME EXISTANT
 - Add debounce to category validators

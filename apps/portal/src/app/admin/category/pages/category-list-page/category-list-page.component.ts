@@ -49,7 +49,6 @@ export class CategoryListPageComponent implements OnInit {
 
     dialogRef.afterClosed()
       .pipe(
-        tap(console.log),
         filter(res => res === true),
         mergeMapTo(this.deleteCategory(category.id))
       ).subscribe();
