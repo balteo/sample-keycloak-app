@@ -9,11 +9,11 @@ import {Category} from "../../models/category.model";
 export class CategoryItemComponent {
 
   @Input() category: Category;
-  @Output() deleteEvent = new EventEmitter<number>();
+  @Output() deleteEvent = new EventEmitter<Category>();
   @Output() updateEvent = new EventEmitter<Category>();
 
-  delete(id: number) {
-    this.deleteEvent.emit(id);
+  delete(category: Category) {
+    this.deleteEvent.emit(category);
   }
 
   update(category: Category) {

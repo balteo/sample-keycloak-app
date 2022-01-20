@@ -4,6 +4,7 @@
 - Fonctionnalité de réordonnancement des catégories ?
 - Couleurs ? => COMME EXISTANT
 - Spécifier menu de gauche
+- Add debounce to category validators
 - Quand écran sm, menu de gauche passe à droite
 - Extraire blocs de html en composants
 - Clarifier messages de confirmation utilisateur avant suppression et de confirmation de création

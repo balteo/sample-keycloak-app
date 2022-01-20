@@ -20,6 +20,9 @@ import {MatChipsModule} from "@angular/material/chips";
 import {CategoryCreateFormComponent} from "./admin/category/components/category-form/category-create-form.component";
 import {UpdateCategoryPageComponent} from "./admin/category/pages/update-category-page/update-category-page.component";
 import {CategoryUpdateFormComponent} from "./admin/category/components/category-form/category-update-form.component";
+import {DeleteConfirmationComponent} from './shared/delete-confirmation/delete-confirmation.component';
+import {MatDialogModule} from "@angular/material/dialog";
+import {routes} from "./app.routes";
 
 @NgModule({
   declarations: [AppComponent,
@@ -28,8 +31,10 @@ import {CategoryUpdateFormComponent} from "./admin/category/components/category-
     CategoryCreateFormComponent,
     CategoryUpdateFormComponent,
     CreateCategoryPageComponent,
-    UpdateCategoryPageComponent],
+    UpdateCategoryPageComponent,
+    DeleteConfirmationComponent],
   imports: [
+    RouterModule.forRoot(routes, {initialNavigation: 'enabledBlocking'}),
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
@@ -37,31 +42,13 @@ import {CategoryUpdateFormComponent} from "./admin/category/components/category-
     MatButtonModule,
     MatIconModule,
     MatTooltipModule,
-    RouterModule.forRoot([
-      {
-        component: CategoryListPageComponent,
-        path: 'admin/categories'
-      },
-      {
-        component: CreateCategoryPageComponent,
-        path: 'admin/categories/new'
-      },
-      {
-        path: 'admin',
-        redirectTo: 'admin/categories',
-        pathMatch: 'full'
-      },
-      {
-        component: UpdateCategoryPageComponent,
-        path: 'admin/categories/:id/edit'
-      }
-    ], {initialNavigation: 'enabledBlocking'}),
     MatListModule,
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
     MatBadgeModule,
     MatChipsModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent],
