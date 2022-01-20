@@ -47,6 +47,11 @@ import {CategoryUpdateFormComponent} from "./admin/category/components/category-
         path: 'admin/categories/new'
       },
       {
+        path: 'admin',
+        redirectTo: 'admin/categories',
+        pathMatch: 'full'
+      },
+      {
         component: UpdateCategoryPageComponent,
         path: 'admin/categories/:id/edit'
       }
