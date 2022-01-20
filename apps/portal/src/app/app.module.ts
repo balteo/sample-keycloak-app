@@ -23,6 +23,8 @@ import {CategoryUpdateFormComponent} from "./admin/category/components/category-
 import {DeleteConfirmationComponent} from './shared/delete-confirmation/delete-confirmation.component';
 import {MatDialogModule} from "@angular/material/dialog";
 import {routes} from "./app.routes";
+import {MatTabsModule} from "@angular/material/tabs";
+import { ApplicationListPageComponent } from './admin/application/pages/application-list-page/application-list-page.component';
 
 @NgModule({
   declarations: [AppComponent,
@@ -32,24 +34,26 @@ import {routes} from "./app.routes";
     CategoryUpdateFormComponent,
     CreateCategoryPageComponent,
     UpdateCategoryPageComponent,
-    DeleteConfirmationComponent],
-  imports: [
-    RouterModule.forRoot(routes, {initialNavigation: 'enabledBlocking'}),
-    BrowserModule,
-    BrowserAnimationsModule,
-    HttpClientModule,
-    MatCardModule,
-    MatButtonModule,
-    MatIconModule,
-    MatTooltipModule,
-    MatListModule,
-    ReactiveFormsModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatBadgeModule,
-    MatChipsModule,
-    MatDialogModule
-  ],
+    DeleteConfirmationComponent,
+    ApplicationListPageComponent],
+    imports: [
+        RouterModule.forRoot(routes, {initialNavigation: 'enabledBlocking'}),
+        BrowserModule,
+        BrowserAnimationsModule,
+        HttpClientModule,
+        MatCardModule,
+        MatButtonModule,
+        MatIconModule,
+        MatTooltipModule,
+        MatListModule,
+        ReactiveFormsModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatBadgeModule,
+        MatChipsModule,
+        MatDialogModule,
+        MatTabsModule
+    ],
   providers: [],
   bootstrap: [AppComponent],
 })

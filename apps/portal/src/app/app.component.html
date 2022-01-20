@@ -24,19 +24,32 @@
     </div>
   </span>
 </div>
-<div class="flex flex-row min-h-screen">
-  <div class="basis-1/6 p-6">
-    <mat-list>
-      <mat-list-item>
-        <a routerLink="/admin/categories" class="text-lg">Categories</a>
-      </mat-list-item>
-      <mat-divider></mat-divider>
-      <mat-list-item>
-        <a routerLink="/admin/applications" class="text-lg">Applications</a>
-      </mat-list-item>
-    </mat-list>
-  </div>
-  <div style="background-color: antiquewhite" class="basis-5/6 p-6">
-    <router-outlet></router-outlet>
-  </div>
+<nav mat-tab-nav-bar color="accent" backgroundColor="primary" mat-align-tabs="center">
+  <a mat-tab-link
+     routerLinkActive=""
+     #rlaCategories="routerLinkActive"
+     [active]="rlaCategories.isActive"
+     routerLink="/admin/categories">
+    <div>
+      <div>
+        <mat-icon>category</mat-icon>
+      </div>
+      <div>Catégories</div>
+    </div>
+  </a>
+  <a mat-tab-link
+     routerLinkActive=""
+     #rlaApplications="routerLinkActive"
+     [active]="rlaApplications.isActive"
+     routerLink="/admin/applications">
+    <div>
+      <div>
+        <mat-icon>apps</mat-icon>
+      </div>
+      <div>Applications</div>
+    </div>
+  </a>
+</nav>
+<div class="p-8 min-h-screen">
+  <router-outlet></router-outlet>
 </div>

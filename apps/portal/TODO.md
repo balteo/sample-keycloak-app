@@ -3,9 +3,7 @@
 - Implementer tests
 - Fonctionnalité de réordonnancement des catégories ?
 - Couleurs ? => COMME EXISTANT
-- Spécifier menu de gauche
 - Add debounce to category validators
-- Quand écran sm, menu de gauche passe à droite
 - Extraire blocs de html en composants
 - Clarifier messages de confirmation utilisateur avant suppression et de confirmation de création
 - Docker with frontend & json server?
@@ -21,3 +19,5 @@
 - Changer nom du composant category-page
 - Clarifier validateurs pour category label & description
 - Validateur à implémenter pour vérifier si une catégorie n'existe pas déjà
+- Spécifier menu de gauche
+- Quand écran sm, menu de gauche passe à droite

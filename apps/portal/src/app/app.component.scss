@@ -9,3 +9,7 @@
 .connection-box {
   background-color: #80a8c4;
 }
+
+::ng-deep nav.mat-tab-nav-bar a.mat-tab-link {
+  height: 5em;
+}
