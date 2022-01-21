@@ -2,11 +2,14 @@ FROM node:latest
 
 WORKDIR /data
 
-COPY . .
+RUN yarn global add json-server
 
-RUN npm install -g json-server
-RUN npm install -f
-RUN npm run build:portal-frontend
+COPY package.json .
+RUN yarn install --ignore-scripts
+
+COPY . .
+RUN yarn run build:portal-frontend
+
 RUN mkdir public
 RUN mv /data/dist/apps/portal/* /data/public
 
