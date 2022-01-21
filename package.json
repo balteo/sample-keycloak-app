@@ -10,7 +10,7 @@
     "start:portal-frontend": "nx serve portal --proxy-config=./apps/portal/proxy.conf.json",
     "start:keycloak-ng-app": "nx serve keycloak-ng-app --proxy-config=./apps/keycloak-ng-app/proxy.conf.json",
     "start:keycloak-react-app": "nx run keycloak-react-app:serve",
-    "build": "nx build",
+    "build:portal-frontend": "nx build portal",
     "test": "nx run-many --target=test --all"
   },
   "private": true,
