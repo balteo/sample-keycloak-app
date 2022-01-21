@@ -6,6 +6,7 @@
 - Add debouncetime to async validators
 - Extraire blocs de html en composants
 - Docker with frontend & json server?
+- Migrate to yarn
 
 ## List of done TODOs
 
