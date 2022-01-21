@@ -5,10 +5,10 @@ WORKDIR /data
 COPY . .
 
 RUN npm install -g json-server
-
+RUN npm install -f
+RUN npm run build:portal-frontend
 RUN mkdir public
-
-COPY dist/apps/portal public
+RUN mv /data/dist/apps/portal/* /data/public
 
 EXPOSE 80
 
