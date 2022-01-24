@@ -1,3 +1,3 @@
 #!/bin/bash
 
-docker build -t custom-json-server .
+docker build -f Dockerfile.portal -t cnom/portal .
